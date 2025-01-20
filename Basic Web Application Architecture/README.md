@@ -19,8 +19,8 @@ AWS Services Used:
     - Server Side Encryption
 - Amazon RDS MySQL Instance
 
-![Web App Architecture]("Architecture Images/WebAppArchitecture")
+![Web App Architecture](WebAppArchitecture.png)
 
 Note: 
 The domain used for the primary zone "example.com" does not work as I do not own a domain myself. However, with an owned domain the infrastructure will work. 
-Also, ".terraform" file is removed due to files being too large to push to github. Make sure you run "terraform init" to allow the infrastructure to work. 
+Also, the ".terraform" file is removed due to files being too large to push to github. Make sure you run "terraform init" to allow the infrastructure to work. 
