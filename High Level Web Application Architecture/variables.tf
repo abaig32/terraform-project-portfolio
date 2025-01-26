@@ -27,3 +27,15 @@ variable "db_password" {
     type = string
     default = "foobarbaz"
 }
+
+variable "metric_name" {
+    description = "specify the metric for cloudwatch waf logging"
+    type = string
+    default = "waf_logs"
+}
+
+variable "alb_ip_sets" {
+    description = "specify the ip ranges to block for the WAF"
+    type = list(string)
+    default = [ "192.168.1.1/32", "203.0.113.0/24" ]
+}
