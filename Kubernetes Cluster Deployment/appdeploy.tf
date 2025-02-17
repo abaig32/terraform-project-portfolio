@@ -1,6 +1,6 @@
 resource "kubernetes_deployment" "todowebapp" {
 
-  depends_on = [module.eks]
+  depends_on = [kubernetes_service.todowebapp_service]
 
   metadata {
     name = "webapp"
