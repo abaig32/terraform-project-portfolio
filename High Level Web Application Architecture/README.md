@@ -1,6 +1,6 @@
 This is a Terraform/IaC representation of a high-level web application architecture.
 
-The architecture consists of a VPC with public and private subnets with internet and NAT gateways. A Route 53 hosted zone routes traffic to a CloudFront distribution, which caches and delivers content from an Application Load Balancer (ALB) deployed in the public subnet. The ALB is protected by an AWS WAF, which enforces IP blocking and geo-restrictions.
+The architecture consists of a VPC with public and private subnets with internet and NAT gateways. A Route 53 hosted zone routes traffic to a CloudFront distribution, which caches and delivers content from an Application Load Balancer (ALB) deployed in the public subnet in two different availability zones. The ALB is protected by an AWS WAF, which enforces IP blocking and geo-restrictions.
 
 Traffic reaching the ALB is forwarded to an Auto Scaling Group (ASG) running two EC2 instances in the private subnet, ensuring scalability and availability. The application interacts with an Amazon RDS MySQL instance, secured within the private subnet via VPC endpoints to restrict public access.
 
@@ -38,7 +38,7 @@ Some Improvements for the Future:
  - Cloudfront "https-only" origin protocol policy with an acm certificate to increase security
  - Logging with Kinesis Data Firehose delivery into an S3 bucket to allow for querying of WAF 
  - As mentioned, with a domain, it could be hosted with route 53 at the front of the application
- - S3 backend to save state file and increase the security of the file 
+ - S3 backend to save the state file and increase the security of the file 
  - DynamoDB to lock the state of the file in case of collaboration
 
 ARCHITECTURE: 
