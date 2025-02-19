@@ -2,6 +2,4 @@ Welcome to a GitHub Repository that showcases the several terraform projects tha
 has improved. This portfolio will start from basic level architectures and keep growing as my skills improve. I mainly focus on using AWS as the 
 cloud service provider for my projects, however, I will start to incorporate more Azure into my projects as time goes on. 
 
-NOTE: 
 
-This project is still a work in progress

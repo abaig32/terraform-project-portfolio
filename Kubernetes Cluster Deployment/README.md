@@ -1,1 +1,5 @@
 This project focuses on using a docker image of a to-do-list web app that I created using HTML, CSS, and JavaScript. That docker image was uploaded to dockerhub into a public repository at https://hub.docker.com/r/abaig32/todo-app. I then used Terraform to provision an EKS cluster with managed modes that would deliver this containerized web app. I also updated the file structure in this project compared to my others. All relevant blocks are in their own files and can be easily found through file names. 
+
+NOTE: 
+
+This project is still a work in progress
