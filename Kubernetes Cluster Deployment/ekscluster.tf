@@ -2,24 +2,27 @@ module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "~> 20.0"
 
-  cluster_name    = "my-cluster"
+  cluster_name    = "todolist-cluster"
   cluster_version = "1.31"
 
   vpc_id     = module.vpc.vpc_id
   subnet_ids = flatten([module.vpc.public_subnets, module.vpc.private_subnets])
 
-  iam_role_arn = aws_iam_role.eks_cluster_role.arn
+  cluster_endpoint_public_access = true
+
 
   eks_managed_node_groups = {
-    example = {
+    one = {
+
+      name = "node-group-1"
+
       ami_type       = "AL2023_x86_64_STANDARD"
       instance_types = ["t2.micro"]
 
       min_size     = 1
-      max_size     = 2
+      max_size     = 3
       desired_size = 2
 
-      node_role_arn = aws_iam_role.eks_node_role.arn
 
     }
   }
