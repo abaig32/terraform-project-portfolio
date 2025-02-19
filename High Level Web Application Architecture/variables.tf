@@ -13,7 +13,7 @@ variable "ec2_instance_ami" {
 variable "s3_bucket_name" {
     description = "specify s3 bucket name"
     type = string
-    default = "bucket_for_instances"
+    default = "ec2-storage-bucket-2025"
 }
 
 variable "db_username" {
@@ -38,4 +38,10 @@ variable "alb_ip_sets" {
     description = "specify the ip ranges to block for the WAF"
     type = list(string)
     default = [ "192.168.1.1/32", "203.0.113.0/24" ]
+}
+
+variable "domainname" {
+    description = "enter a domain name"
+    type = string
+    default = "example.com"
 }
