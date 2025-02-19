@@ -19,10 +19,22 @@ AWS Services Used:
     - Server Side Encryption
 - Amazon RDS MySQL Instance
 
- ![Web App Architecture](WebAppArchitecture.png)
-
 NOTE:
 
-The domain used for the primary zone "example.com" does not work as I do not own a domain myself. However, with an owned domain the infrastructure will work. 
+All of this was aimed to be done within the free tier of AWS, there could be improvements made which I will lay out
+
+I had to comment out the route53.tf file because the domain used for the primary zone "example.com" does not work as I do not own a domain myself. However, with an owned domain the infrastructure will work. 
 
 Also, the ".terraform" file is removed due to files being too large to push to github. Make sure you run "terraform init" to allow the infrastructure to work. 
+
+Some Improvements for the Future: 
+
+- Auto Scaling Group to futher enhance availability and scalability
+- WAF or CloudFront distribution to increase the security and limit access based off region or ip address
+- Creation of VPCs and subnets to further improve security and allow for dedicated environments 
+
+
+
+ ![Web App Architecture](WebAppArchitecture.png)
+
+
