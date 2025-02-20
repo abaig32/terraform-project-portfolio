@@ -3,10 +3,11 @@ module "eks" {
   version = "~> 20.0"
 
   cluster_name    = "todolist-cluster"
-  cluster_version = "1.31"
+  cluster_version = "1.32"
 
-  vpc_id     = module.vpc.vpc_id
-  subnet_ids = flatten([module.vpc.public_subnets, module.vpc.private_subnets])
+  vpc_id     = aws_vpc.main.id
+  subnet_ids = [aws_subnet.subnet_1.id,aws_subnet.subnet_2.id, aws_subnet.subnet_3.id]
+  control_plane_subnet_ids = [aws_subnet.subnet_1.id,aws_subnet.subnet_2.id, aws_subnet.subnet_3.id]
 
   cluster_endpoint_public_access = true
 
@@ -16,14 +17,34 @@ module "eks" {
 
       name = "node-group-1"
 
-      ami_type       = "AL2023_x86_64_STANDARD"
-      instance_types = ["t2.micro"]
+      instance_types = ["t3.medium"]
 
       min_size     = 1
-      max_size     = 3
-      desired_size = 2
+      max_size     = 2
+      desired_size = 1
 
 
     }
   }
+}
+
+
+output "cluster_endpoint" {
+  description = "Endpoint for EKS control plane"
+  value       = module.eks.cluster_endpoint
+}
+
+output "cluster_security_group_id" {
+  description = "Security group ids attached to the cluster control plane"
+  value       = module.eks.cluster_security_group_id
+}
+
+output "region" {
+  description = "AWS region"
+  value       = var.region
+}
+
+output "cluster_name" {
+  description = "Kubernetes Cluster Name"
+  value       = module.eks.cluster_name
 }
