@@ -1,6 +1,6 @@
 # Kubernetes Cluster Deployment with Terraform and EKS
 
-This repository contains Terraform code to provision an AWS VPC, EKS cluster, and associated resources. It also provides Kubernetes manifests for deploying an application container (hosted in an ECR repository) and exposing it via a LoadBalancer.
+This repository contains Terraform code to provision an AWS VPC, EKS cluster, and associated resources. It also provides Kubernetes manifests for deploying an application container (hosted in an ECR repository) and exposing it via a LoadBalancer. 
 
 # Description
 

@@ -1,3 +1,5 @@
+#Security Groups
+
 resource "aws_security_group" "worker_nodes_sg" {
     vpc_id = module.vpc.vpc_id
 }
