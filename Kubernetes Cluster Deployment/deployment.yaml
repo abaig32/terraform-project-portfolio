@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todolist-app-deployment
+  labels:
+    app: todolist-app
+spec:
+  replicas: 1 
+  selector:
+    matchLabels:
+      app: todolist-app
+  template:
+    metadata:
+      labels:
+        app: todolist-app
+    spec:
+      containers:
+        - name: todolist-app
+          image: 471112878793.dkr.ecr.us-east-1.amazonaws.com/todolist-repo@sha256:d67bdfeeec717fe09a30e42cba59b5a624d57a1f87d6ed569aa6f2dc02c7e4b5
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "64Mi"
+            limits:
+              cpu: "500m"
+              memory: "128Mi"
