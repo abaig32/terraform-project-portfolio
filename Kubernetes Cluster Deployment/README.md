@@ -36,20 +36,21 @@ Then I used Terraform to provision an EKS cluster that used the ECR image within
 
 ### 1. Clone the Repo
 
-git clone <https://github.com/abaig32/terraform-project-portfolio.git>
-cd "Kubernetes Cluster Deployment" 
+```git clone <https://github.com/abaig32/terraform-project-portfolio.git>```
+
+```cd "Kubernetes Cluster Deployment" ```
 
 ### 2. Initialize, Plan, and Apply Terraform Infrastructure (CLI Instructions)
 
-terraform init --upgrade
+```terraform init --upgrade```
 
-terraform plan -out=tfplan
+```terraform plan -out=tfplan```
 
-terraform apply "tfplan"
+```terraform apply "tfplan"```
 
 ### 3. Update KubeConfig (CLI Instructions)
 
-aws eks update-kubeconfig --name todolist-cluster --region us-east-1
+```aws eks update-kubeconfig --name todolist-cluster --region us-east-1```
 
 ### 4. Create Access Entry from AWS Console
 
@@ -67,25 +68,25 @@ This will give you permissions to interact with the cluster
 
 Use this command to see your pods and clusters respectively to make sure they are running and healthy 
 
-kubectl get pods 
+```kubectl get pods```
 
-kubectl get nodes
+```kubectl get nodes```
 
 ### 6. Apply deployment.yaml (CLI Instructions)
 
 This allows your worker nodes to pull the image from ECR 
 
-kubectl apply -f deployment.yaml
+```kubectl apply -f deployment.yaml```
 
 ### 7. Apply service.yaml and get external-ip (CLI Instructions)
 
 This exposes your cluster to a load balancer so you can access the site 
 
-kubectl apply -f service.yaml
+```kubectl apply -f service.yaml```
 
 This command allows you to see the external-ip of your load balancer so you can connect to the cluster. Make sure to give it a few minutes before entering the ip into your web browser. 
 
-kubectl get svc todolist-app-service
+```kubectl get svc todolist-app-service```
 
 ### 8. Connect to the Cluster 
 
